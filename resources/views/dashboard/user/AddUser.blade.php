@@ -40,7 +40,13 @@ Dashbord
                 <a href="{{ route('user.Datatable') }}">Detalis</a>
             </li>
             <li class="submenu-item ">
-                <a href="{{ route('user.AddUser') }}">Add User</a>
+                <a href="{{ route('user.AddUser') }}">Add User</a>   
+            </li>
+            <li class="submenu-item ">
+                <a href="{{ route('post.add') }}">Add Post</a>   
+            </li>
+            <li class="submenu-item ">
+                <a href="{{ route('post.list') }}">Post List</a>
             </li>
         </ul>
     </li>

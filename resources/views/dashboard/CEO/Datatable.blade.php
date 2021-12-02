@@ -40,6 +40,14 @@ Dashbord
             <li class="submenu-item ">
                 <a href="{{ route('CEO.AddUser') }}">Add User</a>
             </li>
+            <li class="submenu-item ">
+            
+                <a href="{{ route('CEO.PostAdd') }}">Add Post</a>
+            </li>
+            <li class="submenu-item ">
+            
+                <a href="{{ route('CEO.PostList') }}">Post List</a>
+            </li>
         </ul>
     </li>
     

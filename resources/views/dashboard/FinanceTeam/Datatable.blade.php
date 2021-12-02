@@ -39,6 +39,14 @@ Dashbord
             <li class="submenu-item ">
                 <a href="{{ route('FinanceTeam.AddUser') }}">Add User</a>
             </li>
+            <li class="submenu-item ">
+            
+                <a href="{{ route('FinanceTeam.PostAdd') }}">Add Post</a>
+            </li>
+            <li class="submenu-item ">
+            
+                <a href="{{ route('FinanceTeam.PostList') }}">Post List</a>
+            </li>
         </ul>
     </li>
     

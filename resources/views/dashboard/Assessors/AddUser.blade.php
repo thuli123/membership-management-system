@@ -43,6 +43,14 @@ Dashbord
             <li class="submenu-item ">
                 <a href="{{ route('Assessors.AddUser') }}">Add User</a>
             </li>
+            <li class="submenu-item ">
+            
+                <a href="{{ route('Assessors.PostAdd') }}">Add Post</a>
+            </li>
+            <li class="submenu-item ">
+            
+                <a href="{{ route('Assessors.PostList') }}">Post List</a>
+            </li>
         </ul>
     </li>
     

@@ -43,6 +43,14 @@ Dashbord
             <li class="submenu-item ">
                 <a href="{{ route('RegistrationsAdmin.AddUser') }}">Add User</a>
             </li>
+            <li class="submenu-item ">
+            
+                <a href="{{ route('RegistrationsAdmin.PostAdd') }}">Add Post</a>
+            </li>
+            <li class="submenu-item ">
+            
+                <a href="{{ route('RegistrationsAdmin.PostList') }}">Post-List</a>
+            </li>
         </ul>
     </li>
     

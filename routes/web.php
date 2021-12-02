@@ -7,7 +7,7 @@ use App\Http\Controllers\Assessors\AssessorsController;
 use App\Http\Controllers\FinanceTeam\FinanceTeamController;
 use App\Http\Controllers\CEO\CEOController;
 use App\Http\Controllers\MemberRegistration\MemberRegistrationController;
-
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +27,12 @@ return view('dashboard.MemberRegistration.MemberRegistration');
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/add-post',[PostController::class,'addPost'])->name('post.add');
+Route::post('/add-post',[PostController::class,'savePost'])->name('save.post');
+Route::get('/post-list',[PostController::class,'postList'])->name('post.list');
+Route::get('/edit-post/{id}',[PostController::class,'editPost'])->name('post.edit');
+Route::post('/update-post',[PostController::class,'updatePost'])->name('update.post');
+Route::get('/delete-post/{id}',[PostController::class,'deletePost'])->name('post.delete');
 
 Route::prefix('user')->name('user.')->group(function(){
 
@@ -44,10 +50,14 @@ Route::prefix('user')->name('user.')->group(function(){
     Route::middleware(['auth:web','PreventBackHistory'])->group(function(){
         Route::view('/home','dashboard.user.home')->name('home');
         Route::view('/Datatable','dashboard.user.Datatable')->name('Datatable');
+       //  Route::view('/Datatable','dashboard.user.addpost')->name('Datatable');
         Route::view('/AddUser','dashboard.user.AddUser')->name('AddUser');
+       
         Route::post('/logout',[UserController::class,'logout'])->name('logout');
         Route::post('/add-new',[UserController::class,'add'])->name('add');
-
+      // Route::get('/add-post',[PostController::class,'addPost'])->name('post.add');
+       //Route::post('/add-post',[PostController::class,'savePost'])->name('save.post');
+          
 
 
     });
@@ -72,6 +82,8 @@ Route::prefix('RegistrationsAdmin')->name('RegistrationsAdmin.')->group(function
         Route::view('/home','dashboard.RegistrationsAdmin.home')->name('home');
         Route::view('/Datatable','dashboard.RegistrationsAdmin.Datatable')->name('Datatable');
         Route::view('/AddUser','dashboard.RegistrationsAdmin.AddUser')->name('AddUser');
+        Route::view('/add-post','dashboard.RegistrationsAdmin.add-post')->name('PostAdd');
+        Route::view('/post-list','dashboard.RegistrationsAdmin.post-list')->name('PostList');
         Route::post('/logout',[RegistrationsAdminController::class,'logout'])->name('logout');
 
     });
@@ -96,6 +108,8 @@ Route::prefix('Assessors')->name('Assessors.')->group(function(){
        Route::view('/home','dashboard.Assessors.home')->name('home');
        Route::view('/Datatable','dashboard.Assessors.Datatable')->name('Datatable');
        Route::view('/AddUser','dashboard.Assessors.AddUser')->name('AddUser');
+       Route::view('/add-post','dashboard.Assessors.add-post')->name('PostAdd');
+        Route::view('/post-list','dashboard.Assessors.post-list')->name('PostList');
        Route::post('/logout',[AssessorsController::class,'logout'])->name('logout');
 
    });
@@ -121,6 +135,8 @@ Route::prefix('FinanceTeam')->name('FinanceTeam.')->group(function(){
        Route::view('/home','dashboard.FinanceTeam.home')->name('home');
        Route::view('/Datatable','dashboard.FinanceTeam.Datatable')->name('Datatable');
        Route::view('/AddUser','dashboard.FinanceTeam.AddUser')->name('AddUser');
+       Route::view('/add-post','dashboard.FinanceTeam.add-post')->name('PostAdd');
+       Route::view('/post-list','dashboard.FinanceTeam.post-list')->name('PostList');
        Route::post('/logout',[FinanceTeamController::class,'logout'])->name('logout');
 
    });
@@ -145,6 +161,8 @@ Route::prefix('CEO')->name('CEO.')->group(function(){
        Route::view('/home','dashboard.CEO.home')->name('home');
        Route::view('/Datatable','dashboard.CEO.Datatable')->name('Datatable');
        Route::view('/AddUser','dashboard.CEO.AddUser')->name('AddUser');
+       Route::view('/add-post','dashboard.CEO.add-post')->name('PostAdd');
+       Route::view('/post-list','dashboard.CEO.post-list')->name('PostList');
        Route::post('/logout',[CEOController::class,'logout'])->name('logout');
 
    });
